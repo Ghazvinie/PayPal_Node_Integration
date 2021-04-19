@@ -1,0 +1,64 @@
+<style>
+
+    html {
+        color: white;
+        text-shadow: 0px 0px 2px black;
+        background-size: 100% 100%;
+    }
+
+    p {
+        padding: 5px;
+        background-color: rgba(1,1,1, 0.5);
+    }
+
+    ul {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: rgba(1,1,1, 0.5);
+    }
+
+    h2, h3 {
+        color: #1d1d1d;
+    }
+
+    .btn {
+        border-radius: 5px;
+        border: none;
+        padding 5px;
+        color: white;
+        background-color: #1d1d1d;
+    }
+
+    .btn:hover{
+        color: blueviolet;
+    }
+
+</style>
+
+<html>
+    <div>
+
+        <hr>
+        <h2>Paypal Integration</h2>
+        </hr>
+
+        <hr>
+
+        <form method="POST" action="/buysingle">
+            <h3>Starter Kit</h3>
+            £10.00
+            <br/>
+            Quantity:
+            <input type="number" name="Quantity" value="1" style="width: 50px;" class="btn"/>
+            <input type="submit" value="Purchase" class="btn"/>
+            <br/>
+            <p>
+                
+            </p>
+        </form>
+
+        </hr>
+
+
+    </div>
+</html>
