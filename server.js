@@ -5,18 +5,17 @@ const fs = require('fs');
 const server = express();
 
 server.use(bodyParser.urlencoded({extended : true}));
-server.use(express.static('pub'));
 
 
 server.get('/test/:name', (request, response) => {
-    console.log(request.params.name);
+    request.send(request.params.name);
     
 });
 
 server.get('/', (request, response) => {
-    // fs.readFile('./templates/home.html', (error, results) => {
-    //     response.send(results.toString());
-    // });
+    fs.readFile('./templates/home.html', (error, results) => {
+        response.send(results.toString());
+    });
 });
 
 server.get('/success/:orderID', (request, response) => {
