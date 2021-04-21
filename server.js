@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const purchaseRepo = require('./repos/purchaseRepo.js');
 
 const server = express();
 
@@ -21,6 +22,7 @@ server.get('/', (request, response) => {
 server.get('/success/:orderID', (request, response) => {
 
     const orderID = request.params.orderID;
+    response.send(orderID);
 
 });
 
@@ -51,6 +53,20 @@ server.get('/recurring_orderdetails/:agreementID', (request, response) => {
 
 server.post('/buysingle', (request, response) => {
     const quantity = request.body.Quantity;
+    const purchaseName = "Buy Me";
+    const purchasePrice = 10.00;
+    const taxPrice = 0;
+    const shippingPrice = 0;
+    const description = "Single Purchase";
+
+    purchaseRepo.BuySingle(purchaseName, purchasePrice, taxPrice, shippingPrice, quantity, description, (error, url) => {
+        if (error) {
+            response.json(error);
+        } else {
+            response.redirect(url);
+        }
+
+    });
 
 });
 

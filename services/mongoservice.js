@@ -5,7 +5,9 @@ const connectionString = process.env.MongoConnectionString || 'mongodb://localho
 
 const Connect = (callback) => {
     mongodb.connect(connectionString, (error, database) => {
-        return callback(error, database, () => { database.close });
+        return callback(error, database, () => {
+            database.close();
+        });
     });
 };
 
@@ -29,6 +31,7 @@ mongoService.Read = (collectionName, readObject, callback) => {
         });
     });
 };
+
 
 mongoService.Update = (collectionName, findObject, updateObject, callback) => {
 
